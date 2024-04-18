@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: client-user-service
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8082/realms/userservice
+            user-name-attribute: preferred_username
+        registration:
+          user-service-app:
+            provider: keycloak
+            client-id: user-service-app
+            client-secret: PXM4YAc9CmXFU6trv1aeA8WevWwktzYR
+            scope:
+              - openid
+              - view-users
+              - microprofile-jwt
+server:
+  port: 8080
+
+user-service:
+  services:
+    users:
+      uri: http://localhost:5500
+      registrationId: user-service-app
+      name: admin
+      password: password

@@ -1,0 +1,4 @@
+user-service:
+  services:
+    users:
+      uri: http://localhost:54321
